@@ -3,7 +3,7 @@
 A movie recommendation system that analyzes user preferences and movie attributes to suggest personalized film choices, enhancing the viewing experience.
 
 ## Objectives
-- [ ] Gather a dataset of movies, including attributes like title, genre, ratings, and user reviews.
+- [x] Gather a dataset of movies, including attributes like title, genre, ratings, and user reviews.
 - [ ] Analyze the dataset to identify trends, popular genres, and correlations between ratings and genres.
 - [ ] Use collaborative filtering or content-based filtering to suggest movies based on user preferences.
 - [ ] Test the model’s accuracy using metrics like Mean Absolute Error (MAE) or Root Mean Squared Error (RMSE).
