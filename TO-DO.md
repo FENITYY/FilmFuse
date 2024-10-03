@@ -1,11 +1,11 @@
 ### To-Do List for the Movie Recommendation System Project
 
 1. Project Setup
-   - Set up a new repository on GitHub.
-   - Create a virtual environment and install necessary libraries (e.g., Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Surprise, Flask/Streamlit).
+   - [x] Set up a new repository on GitHub.
+   - [x] Create a virtual environment and install necessary libraries (e.g., Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Surprise, Flask/Streamlit).
 
 2. Data Collection
-   - Identify and download a movie dataset (e.g., from Kaggle or MovieLens).
+   - [x] Identify and download a movie dataset (e.g., from Kaggle or MovieLens).
    - Explore the dataset to understand its structure and features.
 
 3. Data Preprocessing
