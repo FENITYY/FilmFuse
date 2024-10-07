@@ -3,19 +3,13 @@ import pandas as pd
 # Load the dataset
 df = pd.read_csv('movies.csv')
 
-# Inspect the dataset
-print(df.info())
-print(df.describe())
-
 # Preprocess each attribute
 
 # name: Fill missing values with 'Unknown'
 df['name'] = df['name'].fillna('Unknown')
 
-# rating: Convert to numeric, fill missing values with the mean, and normalize
-df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
-df['rating'] = df['rating'].fillna(df['rating'].mean())
-df['rating'] = (df['rating'] - df['rating'].mean()) / df['rating'].std()
+# rating: Fill missing values with 'Unknown'
+df['rating'] = df['rating'].fillna('Unknown')
 
 # genre: Fill missing values with 'Unknown'
 df['genre'] = df['genre'].fillna('Unknown')
@@ -58,23 +52,5 @@ df['company'] = df['company'].fillna('Unknown')
 # runtime: Fill missing values with the mean
 df['runtime'] = df['runtime'].fillna(df['runtime'].mean())
 
-# Remove duplicates
-df = df.drop_duplicates()
-
-# Handle outliers (example: removing rows where 'budget' is more than 3 standard deviations from the mean)
-budget_mean = df['budget'].mean()
-budget_std = df['budget'].std()
-df = df[(df['budget'] >= budget_mean - 3 * budget_std) & (df['budget'] <= budget_mean + 3 * budget_std)]
-
-# Standardize text data (example: converting 'name' and 'genre' to lowercase)
-df['name'] = df['name'].str.lower()
-df['genre'] = df['genre'].str.lower()
-
-# Correct data types (example: ensuring 'year' is an integer)
-df['year'] = df['year'].astype(int)
-
-# Handle inconsistent data (example: removing special characters from 'company')
-df['company'] = df['company'].str.replace('[^a-zA-Z0-9 ]', '', regex=True)
-
-# Save the cleaned dataset
+# Save the preprocessed dataset
 df.to_csv('movies_cleaned.csv', index=False)
