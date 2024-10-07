@@ -12,25 +12,29 @@ df = pd.read_csv('movies_cleaned.csv')
 print(df.describe())
 print(df['genre'].value_counts())
 print(df['release_country'].value_counts())
+print(df['rating'].value_counts())
 
 # Data Distribution
 # Histograms for numerical columns
-df.hist(bins=30, figsize=(15, 10))
+numerical_columns = ['year', 'score', 'votes', 'budget', 'gross', 'runtime']
+df[numerical_columns].hist(bins=30, figsize=(15, 10))
 plt.tight_layout()
 plt.savefig('histograms.png')  # Save the plot instead of showing it
 plt.close()
 
 # Box plots for numerical columns
 plt.figure(figsize=(15, 10))
-sns.boxplot(data=df[['budget', 'gross', 'runtime', 'score', 'votes']])
+sns.boxplot(data=df[numerical_columns])
 plt.savefig('boxplots.png')  # Save the plot instead of showing it
 plt.close()
 
 # Bar plots for categorical columns
-plt.figure(figsize=(15, 10))
-sns.countplot(y='genre', data=df, order=df['genre'].value_counts().index)
-plt.savefig('barplots.png')  # Save the plot instead of showing it
-plt.close()
+categorical_columns = ['name', 'rating', 'genre', 'director', 'writer', 'star', 'country', 'company', 'release_country']
+for column in categorical_columns:
+    plt.figure(figsize=(15, 10))
+    sns.countplot(y=column, data=df, order=df[column].value_counts().index)
+    plt.savefig(f'barplot_{column}.png')  # Save the plot instead of showing it
+    plt.close()
 
 # Correlation Analysis
 # Select only numeric columns for correlation matrix
