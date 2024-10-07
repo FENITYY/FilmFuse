@@ -29,7 +29,7 @@ plt.savefig('boxplots.png')  # Save the plot instead of showing it
 plt.close()
 
 # Bar plots for categorical columns
-categorical_columns = ['name', 'rating', 'genre', 'director', 'writer', 'star', 'country', 'company', 'release_country']
+categorical_columns = ['rating', 'genre', 'director', 'country', 'release_country']
 for column in categorical_columns:
     plt.figure(figsize=(15, 10))
     sns.countplot(y=column, data=df, order=df[column].value_counts().index)
