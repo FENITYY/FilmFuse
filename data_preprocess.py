@@ -40,10 +40,12 @@ df['star'] = df['star'].fillna('Unknown')
 # country: Fill missing values with 'Unknown'
 df['country'] = df['country'].fillna('Unknown')
 
-# budget: Fill missing values with the mean
+# budget: Convert to numeric and fill missing values with the mean
+df['budget'] = pd.to_numeric(df['budget'], errors='coerce')
 df['budget'] = df['budget'].fillna(df['budget'].mean())
 
-# gross: Fill missing values with the mean
+# gross: Convert to numeric and fill missing values with the mean
+df['gross'] = pd.to_numeric(df['gross'], errors='coerce')
 df['gross'] = df['gross'].fillna(df['gross'].mean())
 
 # company: Fill missing values with 'Unknown'
